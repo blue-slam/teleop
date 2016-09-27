@@ -1,4 +1,4 @@
-lowlevel_name: robot
+lowlevel_name: 'BlueSlam'
 drive_rate: 50
 vel_axis: 1
 omega_axis: 0
