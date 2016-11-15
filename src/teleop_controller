@@ -8,18 +8,13 @@ if __name__ == '__main__':
 
     controller = None
     try:
-        rospy.init_node('teleop')
+        rospy.init_node('teleop_controller')
 
-        params = None
-        param_path = rospy.get_param('~teleop_config_path')
-        with open(param_path, 'r') as f:
-            params = yaml.load(f.read())
-        rospy.set_param('teleop', params)
-
-        controller = TeleopController(params)
-        rate = rospy.Rate(params['drive_rate'])
+        robot_name = rospy.get_param('~robot_name')
+        controller = TeleopController(robot_name)
+        rate = rospy.Rate(rospy.get_param('~update_rate'))
         while not rospy.is_shutdown():
-            controller.drive()
+            controller.update()
             rate.sleep()
 
     except rospy.ROSInterruptException:

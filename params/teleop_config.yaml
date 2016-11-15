@@ -1,7 +1,6 @@
-lowlevel_name: 'BlueSlam'
-drive_rate: 50
+update_rate: 50
 vel_axis: 1
-omega_axis: 0
+omega_axis: 2
 enable_button: 3
 vel_ramp: 1.0
 omega_ramp: 1.0

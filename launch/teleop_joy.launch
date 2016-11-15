@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 
 <launch>
+    <rosparam file="$(find teleop)/params/teleop.yaml" command="load"/>
+
     <node pkg="joy" type="joy_node" name="joy" respawn="true" output="screen">
         <param name="dev" type="string" value="/dev/input/js0"/>
         <param name="deadzone" value="0.12"/>
     </node>
 
-    <node pkg="teleop" type="teleop_controller" name="teleop" respawn="true" output="screen">
-        <param name="teleop_config_path" value="$(find teleop)/params/teleop_config.yaml" />
-    </node>
+    <node pkg="joy_teleop" type="joy_teleop.py" name="teleop" respawn="true" output="screen"/>
 
 </launch>
